@@ -3,6 +3,8 @@ import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
+
+        // Creating planes for program
         Plane[] planepark = new Plane[4];
 
         planepark[0] = new Plane(1, "Rubicon-11", "flying (Madrid - Tokyo)", 421.54f,
@@ -17,8 +19,10 @@ public class Main {
         planepark[3] = new Plane (4, "Atlanta-233", "on repair", 543.f, 5.43f, 80.3f,
                                     393, 305, 310);
 
+
+        //Creating comparators for sorting
         Comparator<Plane> fuelCapacityAscending = Comparator.comparing(Plane::getFuelCapacity);
-        Comparator<Plane> fuelConsumpDesced = Comparator.comparing(Plane::getAverageFuelConsumptionPerHour);
+        Comparator<Plane> fuelConsumpDesceding = Comparator.comparing(Plane::getAverageFuelConsumptionPerHour).reversed();
 
 
         System.out.print("""
@@ -26,6 +30,8 @@ public class Main {
                     ascending order - fuel capacity
                     ----------------------------------------------------
                     """);
+
+        //Sorting in ascending order fuel capacity
         Arrays.sort(planepark, fuelCapacityAscending);
 
         for (Plane plane: planepark) {
@@ -38,7 +44,9 @@ public class Main {
                     descending order - fuel consumption
                     ----------------------------------------------------
                     """);
-        Arrays.sort(planepark, fuelConsumpDesced);
+
+        //Sorting in descending order fuel consumption
+        Arrays.sort(planepark, fuelConsumpDesceding);
 
         for (Plane plane: planepark) {
 

@@ -1,13 +1,23 @@
 public class Plane {
+    //plane id
     private int id;
+
+    //plane model
     private String model;
+
+    // plane status (in flight, on standby, preparing for flight, on repair etc.)
     private String status;
 
+    // total flight hours
     private float totalFlightHours;
+
+    //plane average fuel consumption (kilogram/kilometre)
     private float averageFuelConsumptionPerKM;
+
+    //fuel capacity in tonnes
     private float fuelCapacity;
 
-
+    // number of first/business/economy class seats
     private int firstClassCapacity;
     private int businessClassCapacity;
     private int economyClassCapacity;
@@ -44,6 +54,7 @@ public class Plane {
         return fuelCapacity;
     }
 
+    //Plane constructor
     public Plane(int id, String model, String status, float totalFlightHours,
                  float averageFuelConsumptionPerKM, float fuelCapacity, int firstClassCapacity, int businessClassCapacity,
                  int economyClassCapacity) {
