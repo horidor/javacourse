@@ -1,5 +1,6 @@
 import java.util.LinkedList;
 import java.util.Hashtable;
+import java.util.HashSet;
 
 import static java.lang.Character.isLetter;
 import static java.lang.Character.toLowerCase;
@@ -8,9 +9,16 @@ import java.lang.Integer;
 public class Main {
 
     public static void main(String[] args) {
-        StringBuffer text = new StringBuffer("This is a word sentence! And i have, heh, a word. A word? This is blasphemy!");
+        StringBuffer text = new StringBuffer("""
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Ut mi quam, condimentum quis metus a, mattis tincidunt libero. 
+        Ut tincidunt lorem at quam malesuada, non fringilla velit maximus. 
+        Nullam eget sapien ornare, vehicula sapien vel, fringilla nisi. 
+        Vivamus sodales iaculis nisi eget rutrum. Donec elementum pellentesque faucibus. 
+        Vestibulum a erat vitae purus efficitur maximus. Ut ut sagittis nunc, nec sollicitudin est. 
+        Donec tempor vehicula ex, non accumsan sem egestas at. """);
 
-        Hashtable<String, LinkedList<Integer>> similarwords = new Hashtable();
+        Hashtable<String, HashSet<Integer>> similarwords = new Hashtable();
 
         boolean flag_newsentence = false, flag_word = false;
         int sentence_count = 1;
@@ -31,7 +39,7 @@ public class Main {
                         similarwords.get(some_word.toString()).add(sentence_count);
                     }
                     else {
-                        LinkedList<Integer> temp = new LinkedList<>();
+                        HashSet<Integer> temp = new HashSet<>();
                         temp.add(sentence_count);
                         similarwords.put(some_word.toString(), temp);
                     }
